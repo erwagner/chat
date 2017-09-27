@@ -37,5 +37,10 @@ public class Conexao {
         this.ip = ip;
         this.nick = nick;
     }
+     Conexao(String ip, String nick, int porta) {
+        this.ip = ip;
+        this.nick = nick;
+        this.portaChat = porta;
+    }
     
 }

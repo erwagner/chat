@@ -12,38 +12,50 @@ import java.util.logging.Logger;
 public class Servidor extends Thread {
 
     ServerSocket principal;
-    int porta;
+    int portaNegociacao;
+    int portaAtual;
+    
 
     public Servidor(int porta) throws IOException {
-        this.porta = porta;
-        principal = new ServerSocket(porta);
+        this.portaNegociacao = porta;
+        this.principal = new ServerSocket(porta);
+        this.portaAtual = porta + 1;
     }
-
 
     @Override
     public void run() {
+
         System.out.println("Servidor Principal Ativo !");
         while (true) {
 
+            // NEGOCIAÇÃO
             Socket novoCliente = null;
             try {
                 novoCliente = principal.accept();
-
-                System.out.println("Nova conexão com o cliente "
-                        + novoCliente.getInetAddress().getHostAddress());
-
+                
                 PrintStream saida = new PrintStream(novoCliente.getOutputStream());
-
                 Scanner entrada = new Scanner(novoCliente.getInputStream());
 
-
-                System.out.println("O cliente digitou: " + entrada.nextLine());
-                    saida.println("2001");
                 
+                String ip = novoCliente.getInetAddress().getHostAddress();
+                String nick = entrada.nextLine();
 
+                Conexao temp = new Conexao(ip,nick,portaAtual);
+                
+                
+               // System.out.println("Nova conexão com o cliente " + novoCliente.getInetAddress().getHostAddress());
+
+               // System.out.println("O cliente digitou: " + entrada.nextLine());
+                saida.println(portaAtual);
+
+                System.out.println(nick+" está online no ip "+ip+" e irá conextar na porta "+portaAtual);
+                
+                portaAtual+=2;
+                
                 entrada.close();
                 saida.close();
 
+                //GERAR UMA NOVA CONEXÃO NA PORTA SOLICITADA
             } catch (IOException ex) {
                 Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
             }

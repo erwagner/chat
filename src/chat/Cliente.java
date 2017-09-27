@@ -37,7 +37,7 @@ public class Cliente extends Thread{
             
             this.conexao.setPortaChat(entrada.nextLine());
             
-            System.out.println("O Servidor pediu para fazer a nova conexão na porta: "+this.conexao.getPortaChat());
+            System.out.println(this.conexao.getNick()+": O Servidor pediu para fazer a nova conexão na porta: \t"+this.conexao.getPortaChat());
             
             entrada.close();
             saida.close();
