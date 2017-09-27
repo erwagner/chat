@@ -43,6 +43,7 @@ public class Cliente extends Thread{
             saida.close();
             
             //Inicializacao das novas threads
+            
         } catch (IOException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }

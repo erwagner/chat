@@ -43,9 +43,6 @@ public class Servidor extends Thread {
                 Conexao temp = new Conexao(ip,nick,portaAtual);
                 
                 
-               // System.out.println("Nova conexão com o cliente " + novoCliente.getInetAddress().getHostAddress());
-
-               // System.out.println("O cliente digitou: " + entrada.nextLine());
                 saida.println(portaAtual);
 
                 System.out.println(nick+" está online no ip "+ip+" e irá conextar na porta "+portaAtual);
@@ -56,6 +53,8 @@ public class Servidor extends Thread {
                 saida.close();
 
                 //GERAR UMA NOVA CONEXÃO NA PORTA SOLICITADA
+                
+                
             } catch (IOException ex) {
                 Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
             }
