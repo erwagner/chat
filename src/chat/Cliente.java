@@ -9,13 +9,15 @@ import java.util.logging.Logger;
 
 public class Cliente extends Thread{
     
-    String ip, nick;
-    int portaNegociacao, portaChat;
+//    String ip, nick;
+//    int portaNegociacao, portaChat;
+    int portaNegociacao;
+    Conexao conexao;
 
     public Cliente(String ip, int portaNegociacao, String nick) {
-        this.ip = ip;
+        conexao = new Conexao(ip, nick);
         this.portaNegociacao = portaNegociacao;
-        this.nick = nick;
+
     }
     
        
@@ -25,19 +27,17 @@ public class Cliente extends Thread{
         try {
             //Negociação
             
-            Socket clienteNegociacao = new Socket(this.ip, this.portaNegociacao);
+            Socket clienteNegociacao = new Socket(this.conexao.getIp(), this.portaNegociacao);
             System.out.println("Negociando com servidor...");
             
             PrintStream saida = new PrintStream(clienteNegociacao.getOutputStream());
             Scanner entrada = new Scanner(clienteNegociacao.getInputStream());
             
-            saida.println(this.nick);
+            saida.println(this.conexao.getNick());
             
-            System.out.println(entrada.nextLine());
-            //this.portaChat = Integer.parseInt(entrada.nextLine());
-            System.out.println("aqui");
+            this.conexao.setPortaChat(entrada.nextLine());
             
-            System.out.println("O Servidor pediu para fazer a nova conexão na porta: "+this.portaChat);
+            System.out.println("O Servidor pediu para fazer a nova conexão na porta: "+this.conexao.getPortaChat());
             
             entrada.close();
             saida.close();
