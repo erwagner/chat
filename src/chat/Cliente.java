@@ -50,18 +50,3 @@ public class Cliente extends Thread{
         
     }
 }
-/* ////////////////Socket cliente = new Socket("127.0.0.1", 2000);
-     ////////////////////////////System.out.println("O cliente se conectou ao servidor!");
-     
-     Scanner teclado = new Scanner(System.in);
-     ///////////////////////PrintStream saida = new PrintStream(cliente.getOutputStream());
-     
-    //////////////////////////// Scanner entrada = new Scanner(cliente.getInputStream());
-     
-     while (teclado.hasNextLine()) {
-       saida.println(teclado.nextLine());
-       System.out.println("O SE4RVIDOR digitou: " + entrada.nextLine());
-     }
-     
-     saida.close();
-     teclado.close();*/

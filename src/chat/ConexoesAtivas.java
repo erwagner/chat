@@ -14,7 +14,7 @@ public class ConexoesAtivas {
     public String toString(){
         String saida = "";
         for(int i=0; i<conexoes.size();i++)
-            saida+=conexoes.get(i).toString();
+            saida+=conexoes.get(i).toString()+"\n";
         
         return saida;
     }

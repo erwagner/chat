@@ -56,7 +56,7 @@ public class Servidor extends Thread {
                 saida.close();
 
                 //GERAR UMA NOVA CONEXÃO NA PORTA SOLICITADA
-                
+                System.out.println("Conexões ativas:\n"+conexoes.toString());
                 
                 
             } catch (IOException ex) {
