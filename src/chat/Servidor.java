@@ -14,12 +14,14 @@ public class Servidor extends Thread {
     ServerSocket principal;
     int portaNegociacao;
     int portaAtual;
+    ConexoesAtivas conexoes;
     
 
-    public Servidor(int porta) throws IOException {
+    public Servidor(int porta, ConexoesAtivas conexoes) throws IOException {
         this.portaNegociacao = porta;
         this.principal = new ServerSocket(porta);
         this.portaAtual = porta + 1;
+        this.conexoes = conexoes;
     }
 
     @Override
@@ -42,10 +44,11 @@ public class Servidor extends Thread {
 
                 Conexao temp = new Conexao(ip,nick,portaAtual);
                 
+                conexoes.adicionarConexao(temp);
                 
                 saida.println(portaAtual);
 
-                System.out.println(nick+" está online no ip "+ip+" e irá conextar na porta "+portaAtual);
+                System.out.println(nick+" está online no ip "+ip+" e irá conectar na porta "+portaAtual);
                 
                 portaAtual+=2;
                 
@@ -53,6 +56,7 @@ public class Servidor extends Thread {
                 saida.close();
 
                 //GERAR UMA NOVA CONEXÃO NA PORTA SOLICITADA
+                
                 
                 
             } catch (IOException ex) {

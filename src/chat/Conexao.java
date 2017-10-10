@@ -42,5 +42,10 @@ public class Conexao {
         this.nick = nick;
         this.portaChat = porta;
     }
+     
+     @Override
+    public String toString(){
+        return this.nick+"->"+this.ip+":"+this.portaChat;
+    }
     
 }
