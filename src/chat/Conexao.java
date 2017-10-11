@@ -55,6 +55,7 @@ public class Conexao {
     }
 
     public void setMensagem(String mensagem) {
+        System.out.println("sou "+this.nick+" e recebi a mensagem: "+mensagem);
         this.mensagem = mensagem;
     }
 

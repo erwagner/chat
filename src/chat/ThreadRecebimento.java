@@ -37,7 +37,7 @@ public class ThreadRecebimento extends Thread {
                     String mensagem = entrada.nextLine();
                     this.conexao.setMensagem(mensagem);
                     this.conexao.setMensagemNova(true);
-                    System.out.println(this.conexao.getNick()+" digitou: "+mensagem);
+                    //System.out.println(this.conexao.getNick()+" digitou: "+mensagem);
                 }
 
                 entrada.close();

@@ -8,8 +8,13 @@ public class TestaServidor {
             ConexoesAtivas conexoes = new ConexoesAtivas();
         
             Servidor principal = new Servidor(2000, conexoes);
+            
+            ThreadGerenciadorDeConexoes gerenciador;
+            gerenciador = new ThreadGerenciadorDeConexoes(conexoes);
+        
 
             principal.start();
+            gerenciador.start();
         
     }
     

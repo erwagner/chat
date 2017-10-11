@@ -6,11 +6,8 @@ public class ConexoesAtivas {
     
     ArrayList<Conexao> conexoesEnvio = new ArrayList<>();
     ArrayList<Conexao> conexoesRecebimento = new ArrayList<>();
-    ThreadGerenciadorDeConexoes gerenciador;
+    
 
-    public ConexoesAtivas() {
-        
-    }
 
 
     public void adicionarConexaoRecebimento(Conexao temp){
