@@ -30,15 +30,15 @@ public class ThreadRecebimento extends Thread {
 
                 novoCliente = serverConexaoRecebimento.accept();
 
-                //PrintStream saida = new PrintStream(novoCliente.getOutputStream());
+                
                 Scanner entrada = new Scanner(novoCliente.getInputStream());
 
                 while (entrada.hasNextLine()) {
-                    System.out.println(entrada.nextLine());
+                    System.out.println(this.conexao.getNick()+" digitou: "+entrada.nextLine());
                 }
 
                 entrada.close();
-                //saida.close();
+                
 
             } catch (IOException ex) {
                 Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);

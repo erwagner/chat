@@ -11,7 +11,8 @@ public class ConexoesAtivas {
     public void adicionarConexaoRecebimento(Conexao temp){
         conexoesRecebimento.add(temp);
         //gerar aqui a thread que irá receber as mensagens baseada na conexão
-        
+        ThreadRecebimento tr = new ThreadRecebimento(temp);
+        tr.start();
     }
 
 

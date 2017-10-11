@@ -40,23 +40,15 @@ public class Cliente extends Thread {
             saida.close();
             clienteNegociacao.close();
 
-            //Inicializacao da conexao de chat AQUI /////////////////////////////
-            /*Socket clienteChat = new Socket(this.conexao.getIp(), this.conexao.getPortaChat());
-
-            System.out.println("Conectando...");
-
-            Scanner teclado = new Scanner(System.in);
+            System.out.println("Estabelecendo conexão de ENVIO na porta: " + this.conexao.getPortaChat());
+            Socket clienteChat = new Socket(this.conexao.getIp(), this.conexao.getPortaChat());
             saida = new PrintStream(clienteChat.getOutputStream());
-           // entrada = new Scanner(clienteChat.getInputStream());
-
+            
+            Scanner teclado = new Scanner(System.in);
             while (teclado.hasNextLine()) {
                 saida.println(teclado.nextLine());
-                //    System.out.println("O SE4RVIDOR digitou: " + entrada.nextLine());
             }
 
-            saida.close();
-            teclado.close();
-            clienteChat.close();*/
 
         } catch (IOException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
