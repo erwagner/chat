@@ -3,6 +3,8 @@ package chat;
 public class Conexao {
     String ip, nick;
     int portaChat;
+    String mensagem;
+    boolean mensagemNova;
 
     public String getIp() {
         return ip;
@@ -36,11 +38,32 @@ public class Conexao {
     Conexao(String ip, String nick) {
         this.ip = ip;
         this.nick = nick;
+        this.mensagemNova = false;
+        this.mensagem = "";
     }
      Conexao(String ip, String nick, int porta) {
         this.ip = ip;
         this.nick = nick;
         this.portaChat = porta;
+        this.mensagemNova = false;
+        this.mensagem = "";
+
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public boolean isMensagemNova() {
+        return mensagemNova;
+    }
+
+    public void setMensagemNova(boolean mensagemNova) {
+        this.mensagemNova = mensagemNova;
     }
      
      @Override

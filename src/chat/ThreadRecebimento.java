@@ -34,7 +34,10 @@ public class ThreadRecebimento extends Thread {
                 Scanner entrada = new Scanner(novoCliente.getInputStream());
 
                 while (entrada.hasNextLine()) {
-                    System.out.println(this.conexao.getNick()+" digitou: "+entrada.nextLine());
+                    String mensagem = entrada.nextLine();
+                    this.conexao.setMensagem(mensagem);
+                    this.conexao.setMensagemNova(true);
+                    System.out.println(this.conexao.getNick()+" digitou: "+mensagem);
                 }
 
                 entrada.close();
