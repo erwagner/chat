@@ -44,7 +44,7 @@ public class Servidor extends Thread {
 
                 Conexao temp = new Conexao(ip,nick,portaAtual);
                 
-                conexoes.adicionarConexaoEnvio(temp);
+                conexoes.adicionarConexaoRecebimento(temp);
                 
                 saida.println(portaAtual);
 
